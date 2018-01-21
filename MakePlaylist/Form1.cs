@@ -181,9 +181,7 @@ namespace MakePlaylist
         private void button4_Click(object sender, EventArgs e)
         {
             if (TBFilename.Text == String.Empty)
-            {
                 MessageBox.Show("Enter playlist name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
             else
             {
                 string path = @TBFilename.Text;
@@ -193,16 +191,12 @@ namespace MakePlaylist
                 try
                 {
                     if (File.Exists(path))
-                    {
                         File.Delete(path);
-                    }
 
-                    //using (StreamWriter file = new StreamWriter(path, Encoding.Unicode))
                     using (StreamWriter file = new StreamWriter(path, true, Encoding.Unicode))
                     {
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
-                            //string line = row.Cells["ColPlaylistPath"].Value + row.Cells["ColTitle"].Value + row.Cells["ColExtension"].Value;
                             file.WriteLine(row.Cells["ColPlaylistPath"].Value.ToString() + row.Cells["ColTitle"].Value.ToString() + row.Cells["ColExtension"].Value.ToString());
                         }
                     }
