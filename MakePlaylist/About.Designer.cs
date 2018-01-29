@@ -37,6 +37,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(901, 67);
+            this.label1.Size = new System.Drawing.Size(927, 67);
             this.label1.TabIndex = 0;
             this.label1.Text = "MakePlaylist";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -57,7 +58,7 @@
             this.VLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VLabel.Location = new System.Drawing.Point(0, 67);
             this.VLabel.Name = "VLabel";
-            this.VLabel.Size = new System.Drawing.Size(901, 23);
+            this.VLabel.Size = new System.Drawing.Size(927, 23);
             this.VLabel.TabIndex = 3;
             this.VLabel.Text = "v1.0.0.0";
             this.VLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -68,7 +69,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(0, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(901, 30);
+            this.label4.Size = new System.Drawing.Size(927, 30);
             this.label4.TabIndex = 4;
             this.label4.Text = "Copyright ©  2018 Justin Davis";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -123,7 +124,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 120);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 10, 20, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(901, 163);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(927, 150);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // label6
@@ -149,11 +150,22 @@
             this.linkLabel2.Text = "paypal.me/jusdavis123";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(0, 120);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label3.Size = new System.Drawing.Size(927, 2);
+            this.label3.TabIndex = 10;
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 283);
+            this.ClientSize = new System.Drawing.Size(927, 270);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.VLabel);
@@ -178,5 +190,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label3;
     }
 }
