@@ -607,25 +607,26 @@ namespace MakePlaylist
         // Converts the local path a unix file structure and sets the value as the playlist path
         private void BtnAssume_Click(object sender, EventArgs e)
         {
-            try
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                try
                 {
                     string local = row.Cells["ColLocalPath"].Value.ToString();
                     if (local[0] != '/')
                     {
-                        //Assume that playlist or file is using windows file structure
-                        local = local.Replace(Path.GetPathRoot(local), "");
-                        local = local.Replace("\\", "/");
-                        row.Cells["ColPlaylistPath"].Value = SanitizePath(local);
+                        // Assume that playlist or file is using windows file structure
+                        row.Cells["ColPlaylistPath"].Value = SanitizePath(local.Replace(Path.GetPathRoot(local), ""));
                     }
-                    //Playlist Path should already be mapped on unix file structures. No need to do anything.
+                    // Playlist Path should already be mapped on unix file structures. No need to do anything.
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-                MessageBox.Show("Cannot assume path since it could not be recognized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                catch (Exception ex)
+                {
+                    Console.Write(ex);
+                    //MessageBox.Show("Cannot assume path since it could not be recognized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    // We are probably dealing with some kind of relative path. Convert relative path to playlist path
+                    row.Cells["ColPlaylistPath"].Value = SanitizePath(row.Cells["ColLocalPath"].Value.ToString());
+                }
             }
         }
 
@@ -675,8 +676,6 @@ namespace MakePlaylist
         }
         #endregion
 
-
-
         private string SanitizePath(string path)
         {
             // Remove "/" at the beginning if present
@@ -687,14 +686,10 @@ namespace MakePlaylist
             if (path[path.Length - 1] != '/')
                 path += "/";
 
-            return path;
+            // Convert all backslashes to forward slash and return value
+            return path.Replace("\\", "/");;
         }
         
-
-
-
-
-
         
         // Function to find duplicate entries based on title and file type
         // NOT YET IMPLEMENTED
@@ -728,8 +723,5 @@ namespace MakePlaylist
                 UpdateInfo();
             }
         }*/
-
-
-
     }
 }
